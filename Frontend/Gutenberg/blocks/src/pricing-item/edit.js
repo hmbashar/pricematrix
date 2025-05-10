@@ -7,7 +7,7 @@ import {
 	PanelColorSettings,
 } from "@wordpress/block-editor";
 import { PanelBody, Button, Icon, SelectControl } from "@wordpress/components";
-import { trash, check, close } from "@wordpress/icons";
+import { plus, trash, check, close } from "@wordpress/icons";
 
 export default function Edit({ attributes, setAttributes }) {
 	const {
@@ -142,8 +142,8 @@ export default function Edit({ attributes, setAttributes }) {
 									value={feature.icon}
 									options={[
 										{ label: __("icon", "pricematrix"), value: "" },
-                                        { label: "(✓)", value: "check" },
-                                        { label: "(×)", value: "close" },
+										{ label: "(✓)", value: "check" },
+										{ label: "(×)", value: "close" },
 									]}
 									onChange={(value) => {
 										const newFeatures = [...features];
@@ -179,7 +179,7 @@ export default function Edit({ attributes, setAttributes }) {
 					<Button
 						isPrimary
 						onClick={addFeature}
-						icon="plus"
+						icon={<Icon icon={plus} />}
 						style={{ marginTop: "15px" }}
 						className="pricematrix-add-feature-btn"
 					>

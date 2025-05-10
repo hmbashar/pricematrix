@@ -1,0 +1,37 @@
+.wp-block-pricematrix-pricing-table.pricematrix-pricing-table-area .pricematrix-pricing-table {
+	display: grid;
+	gap: 20px;
+}
+
+
+.wp-block-pricematrix-pricing-table.pricematrix-pricing-table-area.pricematrix-cols-1 .pricematrix-pricing-table{
+	grid-template-columns: 1fr;
+}
+.wp-block-pricematrix-pricing-table.pricematrix-pricing-table-area.pricematrix-cols-2 .pricematrix-pricing-table{
+	grid-template-columns: repeat(2, 1fr);
+}
+.wp-block-pricematrix-pricing-table.pricematrix-pricing-table-area.pricematrix-cols-3 .pricematrix-pricing-table{
+	grid-template-columns: repeat(3, 1fr);
+}
+.wp-block-pricematrix-pricing-table.pricematrix-pricing-table-area.pricematrix-cols-4 .pricematrix-pricing-table{
+	grid-template-columns: repeat(4, 1fr);
+}
+
+
+.pricematrix-editor-grid .block-editor-block-list__layout {
+	display: grid;
+	gap: 20px;
+}
+
+.pricematrix-editor-grid.pricematrix-editor-cols-1 .block-editor-block-list__layout {
+    grid-template-columns: repeat(1, 1fr);
+}
+.pricematrix-editor-grid.pricematrix-editor-cols-2 .block-editor-block-list__layout {
+    grid-template-columns: repeat(2, 1fr);
+}
+.pricematrix-editor-grid.pricematrix-editor-cols-3 .block-editor-block-list__layout {
+    grid-template-columns: repeat(3, 1fr);
+}
+.pricematrix-editor-grid.pricematrix-editor-cols-4 .block-editor-block-list__layout {
+    grid-template-columns: repeat(4, 1fr);
+}
