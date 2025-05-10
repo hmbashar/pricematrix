@@ -1,0 +1,19 @@
+{
+    "apiVersion": 3,
+    "name": "pricematrix/pricing-table",
+    "title": "Pricing Table",
+    "category": "widgets",
+    "icon": "table-col-after",
+    "description": "A responsive pricing table block.",
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "color": {
+            "background": true,
+            "text": true
+        },
+        "spacing": true
+    },
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

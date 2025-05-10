@@ -1,0 +1,140 @@
+.pricematrix-single-pricing-table {
+	width: 270px;
+	margin-right: 12px;
+	margin-left: 12px;
+	margin-bottom: 25px;
+	box-shadow: 0px 6px 13px -10px #9c9c9c;
+	transition: 1s;
+}
+
+.pricematrix-single-pricing-table:last-child {
+	margin-right: 5px;
+}
+
+.pricematrix-single-pricing-table-header {
+	position: relative;
+	min-height: 180px;
+	background: linear-gradient(
+		to bottom,
+		var(--wave1-color) 0%,
+		var(--wave1-color) 50%,
+		var(--wave2-color) 50%,
+		var(--wave2-color) 100%
+	);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.pricematrix-wave {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+.pricematrix-wave-1 {
+	z-index: 1;
+}
+
+.pricematrix-wave-2 {
+	z-index: 2;
+}
+
+.pricematrix-single-pricing-table-header h2 {
+	color: #fff;
+	text-align: center;
+	padding-top: 35px;
+	font-size: 18px;
+	font-family: poppins;
+	text-transform: uppercase;
+	margin-bottom: 16px;
+	font-weight: 500;
+	margin-top: 0;
+	z-index: 3;
+	position: relative;
+}
+
+.pricematrix-single-pricing-table-header h3 {
+	font-family: poppins;
+	font-weight: 400;
+	color: #fff;
+	font-size: 16px;
+	text-align: center;
+	z-index: 3;
+	position: relative;
+}
+
+.pricematrix-single-pricing-price {
+	padding-left: 15px;
+	padding-right: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.pricematrix-single-pricing-price h2 {
+	font-family: poppins;
+	font-size: 30px;
+	color: #4b278f;
+	font-weight: 500;
+	text-align: center;
+	border-bottom: 1px solid #eeeeee;
+	padding-bottom: 15px;
+	margin: 0;
+}
+
+.pricematrix-single-pricing-price h2 sup {
+	font-weight: 400;
+	font-size: 16px;
+}
+
+.pricematrix-single-pricing-price h2 span {
+	font-weight: 400;
+	font-size: 16px;
+}
+
+.pricematrix-single-pricing-content {
+	text-align: center;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-top: 40px;
+}
+
+.pricematrix-single-pricing-content p {
+	color: #666666;
+	font-size: 16px;
+	font-family: roboto;
+	font-weight: 500;
+	margin-bottom: 30px;
+}
+
+.pricematrix-single-pricing-buy {
+	text-align: center;
+	margin-bottom: 40px;
+	margin-top: 45px;
+}
+
+.pricematrix-single-pricing-buy a {
+	background-color: #9b51e0;
+	color: #fff;
+	display: inline-block;
+	padding: 15px 50px;
+	border-radius: 100px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	transition: 1s;
+	text-decoration: none !important;
+}
+
+.pricematrix-single-pricing-table:hover .pricematrix-single-pricing-buy a {
+	transition: 1s;
+	background-color: #41207b;
+	box-shadow: 0px 6px 20px -12px #41207b;
+	color: #fff;
+}
+
+.pricematrix-single-pricing-table:hover {
+	box-shadow: 0px 7px 25px -13px #666;
+}

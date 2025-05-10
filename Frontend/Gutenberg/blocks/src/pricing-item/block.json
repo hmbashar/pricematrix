@@ -1,0 +1,31 @@
+{
+    "apiVersion": 3,
+    "name": "pricematrix/pricing-item",
+    "title": "Pricing Table Item",
+    "category": "widgets",
+    "icon": "index-card",
+    "parent": ["pricematrix/pricing-table"],
+    "description": "A single pricing table item.",
+    "attributes": {
+        "title": { "type": "string", "default": "Starter" },
+        "subtitle": { "type": "string", "default": "" },
+        "price": { "type": "string", "default": "$10" },
+        "per": { "type": "string", "default": "/m" },
+        "features": { "type": "array", "default": ["Feature 1", "Feature 2", "Feature 3"] },
+        "buttonText": { "type": "string", "default": "Buy Now" },
+        "buttonUrl": { "type": "string", "default": "#" },
+        "waveColor1": {
+            "type": "string",
+            "default": "#4b278f"
+        },
+        "waveColor2": {
+            "type": "string",
+            "default": "#ff6f61"
+        }
+    },
+    "supports": {
+        "html": false
+    },
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}
