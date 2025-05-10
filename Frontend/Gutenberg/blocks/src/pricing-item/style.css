@@ -72,6 +72,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+    border-bottom: 1px solid #eeeeee;
 }
 
 .pricematrix-single-pricing-price h2 {
@@ -80,7 +81,6 @@
 	color: #4b278f;
 	font-weight: 500;
 	text-align: center;
-	border-bottom: 1px solid #eeeeee;
 	padding-bottom: 15px;
 	margin: 0;
 }
@@ -100,6 +100,9 @@
 	padding-left: 15px;
 	padding-right: 15px;
 	margin-top: 40px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 }
 
 .pricematrix-single-pricing-content p {
@@ -107,7 +110,7 @@
 	font-size: 16px;
 	font-family: roboto;
 	font-weight: 500;
-	margin-bottom: 30px;
+	margin: 0;
 }
 
 .pricematrix-single-pricing-buy {
@@ -137,4 +140,20 @@
 
 .pricematrix-single-pricing-table:hover {
 	box-shadow: 0px 7px 25px -13px #666;
+}
+.pricematrix-feature-item {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	justify-content: center;
+}
+
+.pricematrix-feature-icon {
+	font-size: 1.2em;
+	color: var(--your-accent-color);
+}
+
+.pricematrix-add-feature-btn.components-button.has-icon.has-text {
+	width: 50%;
+	margin: 0 auto;
 }

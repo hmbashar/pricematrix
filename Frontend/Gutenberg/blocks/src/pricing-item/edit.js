@@ -6,8 +6,8 @@ import {
 	InspectorControls,
 	PanelColorSettings,
 } from "@wordpress/block-editor";
-
-import { PanelBody } from "@wordpress/components";
+import { PanelBody, Button, Icon, SelectControl } from "@wordpress/components";
+import { trash, check, close } from "@wordpress/icons";
 
 export default function Edit({ attributes, setAttributes }) {
 	const {
@@ -15,16 +15,26 @@ export default function Edit({ attributes, setAttributes }) {
 		subtitle,
 		price,
 		per,
-		features,
+		features = [],
 		buttonText,
 		buttonUrl,
 		waveColor1,
 		waveColor2,
 	} = attributes;
 
+	const addFeature = () => {
+		const newFeatures = [...features, { text: "", icon: "" }];
+		setAttributes({ features: newFeatures });
+	};
+
+	const removeFeature = (index) => {
+		const newFeatures = [...features];
+		newFeatures.splice(index, 1);
+		setAttributes({ features: newFeatures });
+	};
+
 	return (
 		<>
-			{/* InspectorControls Panel */}
 			<InspectorControls>
 				<PanelBody title={__("Wave Colors", "pricematrix")} initialOpen={false}>
 					<PanelColorSettings
@@ -50,7 +60,6 @@ export default function Edit({ attributes, setAttributes }) {
 				</PanelBody>
 			</InspectorControls>
 
-			{/* Main Block Content */}
 			<div
 				{...useBlockProps({ className: "pricematrix-single-pricing-table" })}
 			>
@@ -76,7 +85,7 @@ export default function Edit({ attributes, setAttributes }) {
 					>
 						<path
 							d="M0 0 H270 V120 Q200 150 0 90 Z"
-							fill={waveColor1 || "#b381e3"}
+							fill={waveColor1 || "#6D4AB0"}
 						/>
 					</svg>
 
@@ -88,7 +97,7 @@ export default function Edit({ attributes, setAttributes }) {
 					>
 						<path
 							d="M270 0 H0 V120 Q70 150 270 90 Z"
-							fill={waveColor2 || "#9b51e0"}
+							fill={waveColor2 || "#4b278f"}
 						/>
 					</svg>
 				</div>
@@ -96,7 +105,7 @@ export default function Edit({ attributes, setAttributes }) {
 				<div className="pricematrix-single-pricing-price">
 					<RichText
 						tagName="h2"
-						value={`${price}`}
+						value={price}
 						onChange={(value) => setAttributes({ price: value })}
 						placeholder={__("Price", "pricematrix")}
 					/>
@@ -107,21 +116,77 @@ export default function Edit({ attributes, setAttributes }) {
 						placeholder={__("/month", "pricematrix")}
 					/>
 				</div>
+
 				<div className="pricematrix-single-pricing-content">
 					{features.map((feature, index) => (
-						<RichText
+						<div
 							key={index}
-							tagName="p"
-							value={feature}
-							onChange={(value) => {
-								const newFeatures = [...features];
-								newFeatures[index] = value;
-								setAttributes({ features: newFeatures });
+							className="pricematrix-feature-item"
+							style={{
+								display: "flex",
+								alignItems: "center",
+								gap: "8px",
+								justifyContent: "space-between",
+								marginBottom: "10px",
 							}}
-							placeholder={__("Feature", "pricematrix")}
-						/>
+						>
+							<div
+								style={{
+									flex: 1,
+									display: "flex",
+									alignItems: "center",
+									gap: "8px",
+								}}
+							>
+								<SelectControl
+									value={feature.icon}
+									options={[
+										{ label: __("icon", "pricematrix"), value: "" },
+                                        { label: "(✓)", value: "check" },
+                                        { label: "(×)", value: "close" },
+									]}
+									onChange={(value) => {
+										const newFeatures = [...features];
+										newFeatures[index].icon = value;
+										setAttributes({ features: newFeatures });
+									}}
+								/>
+
+								{feature.icon === "check" && <Icon icon={check} />}
+								{feature.icon === "close" && <Icon icon={close} />}
+
+								<RichText
+									tagName="p"
+									className="pricematrix-feature-text"
+									value={feature.text}
+									onChange={(value) => {
+										const newFeatures = [...features];
+										newFeatures[index].text = value;
+										setAttributes({ features: newFeatures });
+									}}
+									placeholder={__("Feature", "pricematrix")}
+								/>
+							</div>
+							<Button
+								isDestructive
+								onClick={() => removeFeature(index)}
+								icon={trash}
+								label={__("Remove", "pricematrix")}
+							/>
+						</div>
 					))}
+
+					<Button
+						isPrimary
+						onClick={addFeature}
+						icon="plus"
+						style={{ marginTop: "15px" }}
+						className="pricematrix-add-feature-btn"
+					>
+						{__("Add Feature", "pricematrix")}
+					</Button>
 				</div>
+
 				<div className="pricematrix-single-pricing-buy">
 					<RichText
 						tagName="a"
