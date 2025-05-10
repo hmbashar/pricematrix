@@ -48,27 +48,7 @@ class AdminManager
      */
     private function initialize()
     {
-        add_filter('plugin_action_links_' . PRICEMATRIX_BASENAME, [$this, 'add_plugin_action_links']);
+       
     }
-
-
-
-  
-
-    /**
-     * Add plugin action links.
-     *
-     * @param array $links Existing plugin action links.
-     * @return array Modified plugin action links.
-     */
-    public function add_plugin_action_links($links)
-    {
-        $plugin_links = [
-            '<a href="' . admin_url('admin.php?page=pricematrix-settings') . '">' . __('Settings', 'pricematrix') . '</a>',
-        ];
-
-        return array_merge($plugin_links, $links);
-    }
-
 
 }
