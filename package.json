@@ -1,0 +1,26 @@
+{
+  "name": "pricematrix",
+  "version": "1.0.0",
+  "description": "PriceMatrix – Advanced Pricing Table Plugin for WordPress",
+  "author": "Md Abul Bashar",
+  "license": "GPL-2.0-or-later",
+  "private": true,
+  "workspaces": [
+    "Frontend/Gutenberg/blocks"
+  ],
+  "scripts": {
+    "clean": "find . -name '.DS_Store' -type f -delete",
+    "make-pot": "composer run-script make-pot",
+    "install-prod": "composer install --no-dev",
+    "install": "npm install",
+    "start": "npm --workspace Frontend/Gutenberg/blocks run start",
+    "build": "npm --workspace Frontend/Gutenberg/blocks run build",
+    "format": "npm --workspace Frontend/Gutenberg/blocks run format",
+    "lint:css": "npm --workspace Frontend/Gutenberg/blocks run lint:css",
+    "lint:js": "npm --workspace Frontend/Gutenberg/blocks run lint:js",
+    "zip": "npm run build && dir-archiver --src . --dest ../pricematrix.zip --exclude '**/.DS_Store' .git .distignore .gitattributes .github .gitignore .editorconfig .wordpress-org README.md composer.lock node_modules package-lock.json phpcs.xml.dist Frontend/Gutenberg/blocks/node_modules Frontend/Gutenberg/blocks/.editorconfig Frontend/Gutenberg/blocks/.gitignore Frontend/Gutenberg/blocks/.DS_Store Frontend/Gutenberg/blocks/package-lock.json Frontend/Gutenberg/blocks/composer.lock Frontend/Gutenberg/blocks/README.md Frontend/Gutenberg/blocks/phpcs.xml.dist Frontend/Gutenberg/blocks/wp-scripts.config.js Frontend/Gutenberg/blocks/webpack.config.js"
+  },
+  "devDependencies": {
+    "dir-archiver": "^2.1.0"
+  }
+}
