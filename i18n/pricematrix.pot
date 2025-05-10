@@ -1,0 +1,35 @@
+# Copyright (C) 2025 Md Abul Bashar
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: PriceMatrix - Advanced Pricing Solution 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pricematrix\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-05-10T13:28:20+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: pricematrix\n"
+
+#. Plugin Name of the plugin
+#: pricematrix.php
+msgid "PriceMatrix - Advanced Pricing Solution"
+msgstr ""
+
+#. Description of the plugin
+#: pricematrix.php
+msgid "A powerful pricing matrix solution for managing complex pricing structures and calculations."
+msgstr ""
+
+#. Author of the plugin
+#: pricematrix.php
+msgid "Md Abul Bashar"
+msgstr ""
+
+#. Author URI of the plugin
+#: pricematrix.php
+msgid "https://facebook.com/hmbashar"
+msgstr ""

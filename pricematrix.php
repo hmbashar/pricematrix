@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: PriceMatrix - Advanced Pricing Solution
+ * Plugin Name: PriceMatrix - The Ultimate Pricing Table Plugin for Gutenberg
  * Description: A powerful pricing matrix solution for managing complex pricing structures and calculations.
  * Version: 1.0.0
  * Author: Md Abul Bashar
@@ -11,7 +11,7 @@
  * Domain Path: /languages
  * Requires at least: 5.8
  * Requires PHP: 8.0
- * namespace: pricematrix
+ * namespace: PriceMatrix
  *
  * @package PriceMatrix
  */
@@ -91,7 +91,7 @@ final class PriceMatrix
      */
     public function register_textdomain()
     {
-        load_plugin_textdomain('pricematrix', false, dirname(plugin_basename(__FILE__)) . '/languages');
+        load_plugin_textdomain('pricematrix', false, dirname(plugin_basename(__FILE__)) . '/i18n');
     }
 
     /**
