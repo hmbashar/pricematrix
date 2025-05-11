@@ -1,37 +1,84 @@
 {
-    "apiVersion": 3,
-    "name": "pricematrix/pricing-item",
-    "title": "Pricing Table Item",
-    "category": "widgets",
-    "icon": "index-card",
-    "parent": ["pricematrix/pricing-table"],
-    "description": "A single pricing table item.",
-    "attributes": {
-        "title": { "type": "string", "default": "Starter" },
-        "subtitle": { "type": "string", "default": "" },
-        "price": { "type": "string", "default": "$10" },
-        "per": { "type": "string", "default": "/m" },
-        "features": {
-            "type": "array",
-            "default": [
-                {"text": "", "icon": ""}
-            ]
-        },
-        "buttonText": { "type": "string", "default": "Buy Now" },
-        "buttonUrl": { "type": "string", "default": "#" },
-        "waveColor1": {
-            "type": "string",
-            "default": "#6D4AB0"
-        },
-        "waveColor2": {
-            "type": "string",
-            "default": "#4b278f"
-        }
-       
-    },
-    "supports": {
-        "html": false
-    },
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"apiVersion": 3,
+	"name": "pricematrix/pricing-item",
+	"title": "Pricing Table Item",
+	"category": "widgets",
+	"icon": "index-card",
+	"parent": ["pricematrix/pricing-table"],
+	"description": "A single pricing table item.",
+	"attributes": {
+		"title": { "type": "string", "default": "Starter" },
+		"subtitle": { "type": "string", "default": "" },
+		"price": { "type": "string", "default": "$10" },
+		"per": { "type": "string", "default": "/m" },
+		"features": {
+			"type": "array",
+			"default": [{ "text": "", "icon": "" }]
+		},
+		"buttonText": { "type": "string", "default": "Buy Now" },
+		"buttonUrl": { "type": "string", "default": "#" },
+
+		"waveColor1": { "type": "string", "default": "#6D4AB0" },
+		"waveColor2": { "type": "string", "default": "#4b278f" },
+
+		"boxBorder": { "type": "object", "default": {} },
+		"boxRadius": { "type": "string", "default": "" },
+		"boxShadow": { "type": "string", "default": "" },
+
+		"headerStyles": { "type": "object", "default": {} },
+		"pricingStyles": { "type": "object", "default": {} },
+		"featuresStyles": { "type": "object", "default": {} },
+		"buttonStyles": { "type": "object", "default": {} },
+		"titleColor": { "type": "string", "default": "" },
+		"titleFontSize": { "type": "string", "default": "" },
+		"titleFontFamily": { "type": "string", "default": "" },
+		"subtitleColor": { "type": "string", "default": "" },
+		"subtitleFontSize": { "type": "string", "default": "" },
+		"subtitleFontFamily": { "type": "string", "default": "" },
+		"priceFontSize": { "type": "string", "default": "24px" },
+		"priceFontFamily": { "type": "string", "default": "" },
+		"priceColor": { "type": "string", "default": "" },
+		"perFontSize": { "type": "string", "default": "14px" },
+		"perColor": { "type": "string", "default": "" },
+		"featureIconSize": { "type": "string", "default": "18px" },
+		"featureTextColor": { "type": "string", "default": "" },
+		"featureFontSize": { "type": "string", "default": "16px" },
+		"featureFontFamily": { "type": "string", "default": "" },
+		"featureGap": { "type": "number", "default": 8 },
+		"featureIconColor": {
+			"type": "string",
+			"default": ""
+		},
+		"featureAlignment": {
+			"type": "string",
+			"default": "flex-start"
+		},
+		"buttonWidth": { "type": "string", "default": "auto" },
+		"buttonColor": { "type": "string", "default": "" },
+		"buttonBg": { "type": "string", "default": "" },
+		"buttonRadius": { "type": "string", "default": "4px" },
+		"buttonHoverColor": { "type": "string", "default": "" },
+		"buttonHoverBg": { "type": "string", "default": "" },
+		"uniqueId": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false,
+		"spacing": {
+			"padding": true,
+			"margin": true
+		},
+
+		"border": {
+			"radius": true,
+			"width": true,
+			"color": true,
+			"style": true
+		},
+		"shadow": true
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

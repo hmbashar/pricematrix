@@ -5,11 +5,33 @@ import {
 	URLInput,
 	InspectorControls,
 	PanelColorSettings,
+	__experimentalUnitControl as UnitControl,
 } from "@wordpress/block-editor";
-import { PanelBody, Button, Icon, SelectControl } from "@wordpress/components";
+import {
+	PanelBody,
+	RangeControl,
+	SelectControl,
+	Button,
+	BoxControl,
+	Icon,
+	TextControl,
+} from "@wordpress/components";
 import { plus, trash, check, close } from "@wordpress/icons";
+import { useEffect } from "@wordpress/element";
+import { v4 as uuidv4 } from 'uuid'; // Import uuidv4
+
+const FONT_OPTIONS = [
+	{ label: "Default", value: "" },
+	{ label: "Arial", value: "Arial, sans-serif" },
+	{ label: "Georgia", value: "Georgia, serif" },
+	{ label: "Poppins", value: "Poppins, sans-serif" },
+	{ label: "Monospace", value: "monospace" },
+];
+
 
 export default function Edit({ attributes, setAttributes }) {
+
+
 	const {
 		title,
 		subtitle,
@@ -20,85 +42,322 @@ export default function Edit({ attributes, setAttributes }) {
 		buttonUrl,
 		waveColor1,
 		waveColor2,
+		boxPadding,
+		titleFontSize,
+		titleFontFamily,
+		titleColor,
+		subtitleFontSize,
+		subtitleFontFamily,
+		subtitleColor,
+		priceFontSize,
+		priceFontFamily,
+		priceColor,
+		perFontSize,
+		perColor,
+		featureIconSize,
+		featureTextColor,
+		featureFontSize,
+		featureFontFamily,
+		featureGap,
+		featureIconColor,
+		featureAlignment,
+		buttonWidth,
+		buttonColor,
+		buttonBg,
+		buttonRadius,
+		buttonHoverColor,
+		buttonHoverBg,
+        uniqueId,
 	} = attributes;
 
 	const addFeature = () => {
-		const newFeatures = [...features, { text: "", icon: "" }];
-		setAttributes({ features: newFeatures });
+		setAttributes({ features: [...features, { text: "", icon: "" }] });
 	};
 
 	const removeFeature = (index) => {
-		const newFeatures = [...features];
-		newFeatures.splice(index, 1);
-		setAttributes({ features: newFeatures });
+		const updated = [...features];
+		updated.splice(index, 1);
+		setAttributes({ features: updated });
 	};
+
+    useEffect(() => {
+        if (!attributes.uniqueId) {
+            setAttributes({ uniqueId: `pricematrix-${uuidv4().slice(0, 8)}` });
+        }
+    }, []);
+
+    const buttonClass = attributes.uniqueId;
+
+	const blockProps = useBlockProps({
+		className: "pricematrix-single-pricing-table",
+		style: {
+			padding: `${boxPadding?.top || 0}px ${boxPadding?.right || 0}px ${
+				boxPadding?.bottom || 0
+			}px ${boxPadding?.left || 0}px`,
+		},
+	});
+
+	const uniqueClass = `pricematrix-button-${
+		attributes.clientId || Math.random().toString(36).substr(2, 8)
+	}`;
 
 	return (
 		<>
-			<InspectorControls>
-				<PanelBody title={__("Wave Colors", "pricematrix")} initialOpen={false}>
+			<InspectorControls group="styles">
+				<PanelBody title={__("Box Styling", "pricematrix")}>
+					<BoxControl
+						label={__("Padding", "pricematrix")}
+						values={boxPadding}
+						onChange={(value) => setAttributes({ boxPadding: value })}
+					/>
+				</PanelBody>
+
+				<PanelBody
+					title={__("Header Styling", "pricematrix")}
+					initialOpen={false}
+				>
 					<PanelColorSettings
-						title={__("Right Wave Color", "pricematrix")}
+						title={__("Wave Colors", "pricematrix")}
 						colorSettings={[
 							{
 								value: waveColor1,
-								onChange: (value) => setAttributes({ waveColor1: value }),
-								label: __("Right Wave Color", "pricematrix"),
+								onChange: (v) => setAttributes({ waveColor1: v }),
+								label: __("Right Wave"),
+							},
+							{
+								value: waveColor2,
+								onChange: (v) => setAttributes({ waveColor2: v }),
+								label: __("Left Wave"),
 							},
 						]}
 					/>
 					<PanelColorSettings
-						title={__("Left Wave Color", "pricematrix")}
+						title={__("Title and Subtitle Colors", "pricematrix")}
 						colorSettings={[
 							{
-								value: waveColor2,
-								onChange: (value) => setAttributes({ waveColor2: value }),
-								label: __("Left Wave Color", "pricematrix"),
+								value: titleColor,
+								onChange: (v) => setAttributes({ titleColor: v }),
+								label: __("Title Color"),
+							},
+							{
+								value: subtitleColor,
+								onChange: (v) => setAttributes({ subtitleColor: v }),
+								label: __("Subtitle Color"),
+							},
+						]}
+					/>
+					<RangeControl
+						label={__("Title Font Size")}
+						value={titleFontSize}
+						onChange={(v) => setAttributes({ titleFontSize: v })}
+						min={12}
+						max={48}
+					/>
+					<SelectControl
+						label={__("Title Font Family")}
+						value={titleFontFamily}
+						options={FONT_OPTIONS}
+						onChange={(v) => setAttributes({ titleFontFamily: v })}
+					/>
+					<RangeControl
+						label={__("Subtitle Font Size")}
+						value={subtitleFontSize}
+						onChange={(v) => setAttributes({ subtitleFontSize: v })}
+						min={10}
+						max={40}
+					/>
+					<SelectControl
+						label={__("Subtitle Font Family")}
+						value={subtitleFontFamily}
+						options={FONT_OPTIONS}
+						onChange={(v) => setAttributes({ subtitleFontFamily: v })}
+					/>
+				</PanelBody>
+
+				<PanelBody
+					title={__("Pricing Styling", "pricematrix")}
+					initialOpen={false}
+				>
+					<RangeControl
+						label={__("Price Font Size")}
+						value={priceFontSize}
+						onChange={(v) => setAttributes({ priceFontSize: v })}
+						min={12}
+						max={48}
+					/>
+					<SelectControl
+						label={__("Price Font Family")}
+						value={priceFontFamily}
+						options={FONT_OPTIONS}
+						onChange={(v) => setAttributes({ priceFontFamily: v })}
+					/>
+					<PanelColorSettings
+						title={__("Price Color")}
+						colorSettings={[
+							{
+								value: priceColor,
+								onChange: (v) => setAttributes({ priceColor: v }),
+								label: __("Price Color"),
+							},
+						]}
+					/>
+					<RangeControl
+						label={__("Per Label Font Size")}
+						value={perFontSize}
+						onChange={(v) => setAttributes({ perFontSize: v })}
+						min={10}
+						max={30}
+					/>
+					<PanelColorSettings
+						title={__("Per Label Color")}
+						colorSettings={[
+							{
+								value: perColor,
+								onChange: (v) => setAttributes({ perColor: v }),
+								label: __("Per Color"),
 							},
 						]}
 					/>
 				</PanelBody>
+
+				<PanelBody
+					title={__("Features Styling", "pricematrix")}
+					initialOpen={false}
+				>
+					<RangeControl
+						label={__("Icon Size")}
+						value={featureIconSize}
+						onChange={(v) => setAttributes({ featureIconSize: v })}
+						min={12}
+						max={32}
+					/>
+					<RangeControl
+						label={__("Gap Between Items")}
+						value={featureGap}
+						onChange={(v) => setAttributes({ featureGap: v })}
+						min={0}
+						max={32}
+					/>
+					<RangeControl
+						label={__("Feature Font Size")}
+						value={featureFontSize}
+						onChange={(v) => setAttributes({ featureFontSize: v })}
+						min={10}
+						max={30}
+					/>
+					<SelectControl
+						label={__("Feature Font Family")}
+						value={featureFontFamily}
+						options={FONT_OPTIONS}
+						onChange={(v) => setAttributes({ featureFontFamily: v })}
+					/>
+					<PanelColorSettings
+						title={__("Feature Color")}
+						colorSettings={[
+							{
+								value: featureTextColor,
+								onChange: (v) => setAttributes({ featureTextColor: v }),
+								label: __("Text Color"),
+							},
+							{
+								value: featureIconColor,
+								onChange: (v) => setAttributes({ featureIconColor: v }),
+								label: __("Icon Color"),
+							},
+						]}
+					/>
+					<SelectControl
+						label={__("Feature Alignment", "pricematrix")}
+						value={featureAlignment}
+						onChange={(value) => setAttributes({ featureAlignment: value })}
+						options={[
+							{ label: __("Left", "pricematrix"), value: "flex-start" },
+							{ label: __("Center", "pricematrix"), value: "center" },
+							{ label: __("Right", "pricematrix"), value: "flex-end" },
+						]}
+					/>
+				</PanelBody>
+				<PanelBody
+					title={__("Button Styling", "pricematrix")}
+					initialOpen={false}
+				>
+					<UnitControl
+						label={__("Button Width", "pricematrix")}
+						onChange={(value) => setAttributes({ buttonWidth: value })}
+						value={buttonWidth}
+						units={["px", "%"]}
+					/>
+					<PanelColorSettings
+						title={__("Colors", "pricematrix")}
+						colorSettings={[
+							{
+								value: buttonColor,
+								onChange: (value) => setAttributes({ buttonColor: value }),
+								label: __("Text Color", "pricematrix"),
+							},
+							{
+								value: buttonBg,
+								onChange: (value) => setAttributes({ buttonBg: value }),
+								label: __("Background Color", "pricematrix"),
+							},
+							{
+								value: buttonHoverColor,
+								onChange: (value) => setAttributes({ buttonHoverColor: value }),
+								label: __("Hover Text Color", "pricematrix"),
+							},
+							{
+								value: buttonHoverBg,
+								onChange: (value) => setAttributes({ buttonHoverBg: value }),
+								label: __("Hover Background", "pricematrix"),
+							},
+						]}
+					/>
+					<RangeControl
+						label={__("Border Radius (px)", "pricematrix")}
+						value={parseInt(buttonRadius)}
+						onChange={(value) => setAttributes({ buttonRadius: `${value}px` })}
+						min={0}
+						max={50}
+					/>
+				</PanelBody>
 			</InspectorControls>
 
-			<div
-				{...useBlockProps({ className: "pricematrix-single-pricing-table" })}
-			>
+			<div {...blockProps}>
 				<div className="pricematrix-single-pricing-table-header">
 					<RichText
 						tagName="h2"
 						value={title}
-						onChange={(value) => setAttributes({ title: value })}
-						placeholder={__("Title", "pricematrix")}
+						onChange={(v) => setAttributes({ title: v })}
+						placeholder={__("Title")}
+						style={{
+							fontSize: titleFontSize,
+							fontFamily: titleFontFamily,
+							color: titleColor,
+						}}
 					/>
 					<RichText
 						tagName="h3"
 						value={subtitle}
-						onChange={(value) => setAttributes({ subtitle: value })}
-						placeholder={__("Subtitle", "pricematrix")}
+						onChange={(v) => setAttributes({ subtitle: v })}
+						placeholder={__("Subtitle")}
+						style={{
+							fontSize: subtitleFontSize,
+							fontFamily: subtitleFontFamily,
+							color: subtitleColor,
+						}}
 					/>
 
-					{/* Wave 1 */}
 					<svg
 						className="pricematrix-wave pricematrix-wave-1"
 						viewBox="0 0 270 175"
-						preserveAspectRatio="none"
 					>
-						<path
-							d="M0 0 H270 V120 Q200 150 0 90 Z"
-							fill={waveColor1 || "#6D4AB0"}
-						/>
+						<path d="M0 0 H270 V120 Q200 150 0 90 Z" fill={waveColor1} />
 					</svg>
-
-					{/* Wave 2 */}
 					<svg
 						className="pricematrix-wave pricematrix-wave-2"
 						viewBox="0 0 270 175"
-						preserveAspectRatio="none"
 					>
-						<path
-							d="M270 0 H0 V120 Q70 150 270 90 Z"
-							fill={waveColor2 || "#4b278f"}
-						/>
+						<path d="M270 0 H0 V120 Q70 150 270 90 Z" fill={waveColor2} />
 					</svg>
 				</div>
 
@@ -106,18 +365,30 @@ export default function Edit({ attributes, setAttributes }) {
 					<RichText
 						tagName="h2"
 						value={price}
-						onChange={(value) => setAttributes({ price: value })}
-						placeholder={__("Price", "pricematrix")}
+						onChange={(v) => setAttributes({ price: v })}
+						placeholder={__("Price")}
+						style={{
+							fontSize: priceFontSize,
+							fontFamily: priceFontFamily,
+							color: priceColor,
+						}}
 					/>
 					<RichText
 						tagName="span"
 						value={per}
-						onChange={(value) => setAttributes({ per: value })}
-						placeholder={__("/month", "pricematrix")}
+						onChange={(v) => setAttributes({ per: v })}
+						placeholder={__("/month")}
+						style={{ fontSize: perFontSize, color: perColor }}
 					/>
 				</div>
 
-				<div className="pricematrix-single-pricing-content">
+				<div
+					className="pricematrix-single-pricing-content"
+					style={{
+						gap: `${featureGap || 10}px`,
+						alignItems: featureAlignment,
+					}}
+				>
 					{features.map((feature, index) => (
 						<div
 							key={index}
@@ -125,62 +396,71 @@ export default function Edit({ attributes, setAttributes }) {
 							style={{
 								display: "flex",
 								alignItems: "center",
-								gap: "8px",
-								justifyContent: "space-between",
-								marginBottom: "10px",
+								gap: "5px",
 							}}
 						>
-							<div
-								style={{
-									flex: 1,
-									display: "flex",
-									alignItems: "center",
-									gap: "8px",
+							<SelectControl
+								value={feature.icon}
+								options={[
+									{ label: "icon", value: "" },
+									{ label: "(✓)", value: "check" },
+									{ label: "(×)", value: "close" },
+								]}
+								onChange={(v) => {
+									const updated = [...features];
+									updated[index].icon = v;
+									setAttributes({ features: updated });
 								}}
-							>
-								<SelectControl
-									value={feature.icon}
-									options={[
-										{ label: __("icon", "pricematrix"), value: "" },
-										{ label: "(✓)", value: "check" },
-										{ label: "(×)", value: "close" },
-									]}
-									onChange={(value) => {
-										const newFeatures = [...features];
-										newFeatures[index].icon = value;
-										setAttributes({ features: newFeatures });
+							/>
+							{feature.icon === "check" && (
+								<Icon
+									icon={check}
+									style={{
+										width: featureIconSize,
+										height: featureIconSize,
+										color: featureIconColor,
+										fill: featureIconColor,
 									}}
 								/>
-
-								{feature.icon === "check" && <Icon icon={check} />}
-								{feature.icon === "close" && <Icon icon={close} />}
-
-								<RichText
-									tagName="p"
-									className="pricematrix-feature-text"
-									value={feature.text}
-									onChange={(value) => {
-										const newFeatures = [...features];
-										newFeatures[index].text = value;
-										setAttributes({ features: newFeatures });
+							)}
+							{feature.icon === "close" && (
+								<Icon
+									icon={close}
+									style={{
+										width: featureIconSize,
+										height: featureIconSize,
+										color: featureIconColor,
+										fill: featureIconColor,
 									}}
-									placeholder={__("Feature", "pricematrix")}
 								/>
-							</div>
+							)}
+
+							<RichText
+								tagName="p"
+								value={feature.text}
+								onChange={(v) => {
+									const updated = [...features];
+									updated[index].text = v;
+									setAttributes({ features: updated });
+								}}
+								placeholder={__("Feature")}
+								style={{
+									fontSize: featureFontSize,
+									fontFamily: featureFontFamily,
+									color: featureTextColor,
+								}}
+							/>
 							<Button
+								icon={trash}
 								isDestructive
 								onClick={() => removeFeature(index)}
-								icon={trash}
-								label={__("Remove", "pricematrix")}
 							/>
 						</div>
 					))}
-
 					<Button
 						isPrimary
 						onClick={addFeature}
 						icon={<Icon icon={plus} />}
-						style={{ marginTop: "15px" }}
 						className="pricematrix-add-feature-btn"
 					>
 						{__("Add Feature", "pricematrix")}
@@ -191,12 +471,30 @@ export default function Edit({ attributes, setAttributes }) {
 					<RichText
 						tagName="a"
 						value={buttonText}
-						onChange={(value) => setAttributes({ buttonText: value })}
-						placeholder={__("Buy Now", "pricematrix")}
+						onChange={(v) => setAttributes({ buttonText: v })}
+						placeholder={__("Buy Now")}
+						style={{
+							display: "inline-block",
+							width: buttonWidth || "auto",
+							backgroundColor: buttonBg,
+							color: buttonColor,
+							borderRadius: buttonRadius,
+							transition: "all 0.3s ease",
+						}}
+						className={`pricematrix-pricing-button ${buttonClass}`}
 					/>
+
+                    {(buttonHoverColor || buttonHoverBg) && (
+                        <style>{`
+                            .${buttonClass}:hover {
+                                ${buttonHoverColor ? `color: ${buttonHoverColor} !important;` : ""}
+                                ${buttonHoverBg ? `background-color: ${buttonHoverBg} !important;` : ""}
+                            }
+                        `}</style>
+                    )}
 					<URLInput
 						value={buttonUrl}
-						onChange={(value) => setAttributes({ buttonUrl: value })}
+						onChange={(v) => setAttributes({ buttonUrl: v })}
 					/>
 				</div>
 			</div>

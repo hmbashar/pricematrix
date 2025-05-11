@@ -33,7 +33,7 @@ export default function Edit({ attributes, setAttributes }) {
 			</InspectorControls>
 
 			<section
-				{...useBlockProps({ className: "pricematrix-pricing-table-area" })}
+				{...useBlockProps({ className: "pricematrix-pricing-table-area" , style: { maxWidth: "1000px" }})}
 			>
 				<div className="pricematrix-pricing-table">
 					<div className={`pricematrix-editor-grid pricematrix-editor-cols-${columns}`}>

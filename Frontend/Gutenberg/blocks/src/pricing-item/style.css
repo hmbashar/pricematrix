@@ -30,7 +30,7 @@
 .pricematrix-wave {
 	position: absolute;
 	left: 0;
-	bottom: 0;
+	top: 0;
 	width: 100%;
 	height: auto;
 	display: block;
@@ -117,8 +117,15 @@
 
 .pricematrix-single-pricing-buy {
 	text-align: center;
-	margin-bottom: 40px;
-	margin-top: 45px;
+	margin-bottom: 20px;
+	margin-top: 25px;
+}
+.pricematrix-pricing-button:hover {
+	filter: brightness(0.95); /* fallback if no custom color */
+}
+.pricematrix-button:hover {
+	color: var(--pricematrix-btn-hover-color);
+	background-color: var(--pricematrix-btn-hover-bg);
 }
 
 .pricematrix-single-pricing-buy a {
@@ -131,6 +138,9 @@
 	margin-bottom: 10px;
 	transition: 1s;
 	text-decoration: none !important;
+}
+.pricematrix-pricing-button:hover {
+    transition: all 0.3s ease;
 }
 
 .pricematrix-single-pricing-table:hover .pricematrix-single-pricing-buy a {
@@ -159,4 +169,8 @@
     width: 100%;
     margin: 0 auto;
     max-width: 120px;
+}
+.pricematrix-pricing-button:hover {
+	color: attr(data-hover-color color);
+	background-color: attr(data-hover-bg color);
 }
