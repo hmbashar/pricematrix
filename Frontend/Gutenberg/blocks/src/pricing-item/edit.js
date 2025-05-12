@@ -406,11 +406,12 @@ export default function Edit({ attributes, setAttributes }) {
 									{ label: "(✓)", value: "check" },
 									{ label: "(×)", value: "close" },
 								]}
-								onChange={(v) => {
-									const updated = [...features];
-									updated[index].icon = v;
-									setAttributes({ features: updated });
-								}}
+                                onChange={(v) => {
+                                    const updated = features.map((item, i) =>
+                                        i === index ? { ...item, icon: v } : { ...item }
+                                    );
+                                    setAttributes({ features: updated });
+                                }}
 							/>
 							{feature.icon === "check" && (
 								<Icon
@@ -438,11 +439,12 @@ export default function Edit({ attributes, setAttributes }) {
 							<RichText
 								tagName="p"
 								value={feature.text}
-								onChange={(v) => {
-									const updated = [...features];
-									updated[index].text = v;
-									setAttributes({ features: updated });
-								}}
+                                onChange={(v) => {
+                                    const updated = features.map((item, i) =>
+                                        i === index ? { ...item, text: v } : { ...item }
+                                    );
+                                    setAttributes({ features: updated });
+                                }}
 								placeholder={__("Feature")}
 								style={{
 									fontSize: featureFontSize,

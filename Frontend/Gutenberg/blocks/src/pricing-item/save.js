@@ -28,6 +28,8 @@ export default function save({ attributes }) {
 		buttonHoverColor,
 		buttonHoverBg,
 		uniqueId,
+		featureAlignment,
+		featureGap,
 	} = attributes;
 
 	return (
@@ -97,7 +99,13 @@ export default function save({ attributes }) {
 				</h2>
 			</div>
 
-			<div className="pricematrix-single-pricing-content">
+			<div
+				className="pricematrix-single-pricing-content"
+				style={{
+					gap: `${featureGap || 10}px`,
+					alignItems: featureAlignment,
+				}}
+			>
 				{features.map((feature, index) => (
 					<div
 						className="pricematrix-feature-item"
@@ -106,7 +114,6 @@ export default function save({ attributes }) {
 							display: "flex",
 							alignItems: "center",
 							gap: "8px",
-							marginBottom: "10px",
 						}}
 					>
 						{feature.icon === "check" && (

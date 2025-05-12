@@ -18,7 +18,10 @@
 			"background": true,
 			"text": true
 		},
-		"spacing": true
+		"spacing": {
+			"padding": true,
+			"margin": true
+		}
 	},
 	"editorScript": "file:./index.js",
 	"style": "file:./style-index.css"
