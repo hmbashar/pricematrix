@@ -2,21 +2,21 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: PriceMatrix - Advanced Pricing Solution 1.0.0\n"
+"Project-Id-Version: PriceMatrix - The Ultimate Pricing Table 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pricematrix\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-05-10T13:28:20+00:00\n"
+"POT-Creation-Date: 2025-05-30T18:14:14+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: pricematrix\n"
 
 #. Plugin Name of the plugin
 #: pricematrix.php
-msgid "PriceMatrix - Advanced Pricing Solution"
+msgid "PriceMatrix - The Ultimate Pricing Table"
 msgstr ""
 
 #. Description of the plugin
@@ -32,4 +32,138 @@ msgstr ""
 #. Author URI of the plugin
 #: pricematrix.php
 msgid "https://facebook.com/hmbashar"
+msgstr ""
+
+#: Frontend/Gutenberg/blocks/build/pricing-item/index.js:1
+#: Frontend/Gutenberg/blocks/src/pricing-item/edit.js:107
+msgid "Box Styling"
+msgstr ""
+
+#: Frontend/Gutenberg/blocks/build/pricing-item/index.js:1
+#: Frontend/Gutenberg/blocks/src/pricing-item/edit.js:109
+msgid "Padding"
+msgstr ""
+
+#: Frontend/Gutenberg/blocks/build/pricing-item/index.js:1
+#: Frontend/Gutenberg/blocks/src/pricing-item/edit.js:116
+msgid "Header Styling"
+msgstr ""
+
+#: Frontend/Gutenberg/blocks/build/pricing-item/index.js:1
+#: Frontend/Gutenberg/blocks/src/pricing-item/edit.js:120
+msgid "Wave Colors"
+msgstr ""
+
+#: Frontend/Gutenberg/blocks/build/pricing-item/index.js:1
+#: Frontend/Gutenberg/blocks/src/pricing-item/edit.js:135
+msgid "Title and Subtitle Colors"
+msgstr ""
+
+#: Frontend/Gutenberg/blocks/build/pricing-item/index.js:1
+#: Frontend/Gutenberg/blocks/src/pricing-item/edit.js:178
+msgid "Pricing Styling"
+msgstr ""
+
+#: Frontend/Gutenberg/blocks/build/pricing-item/index.js:1
+#: Frontend/Gutenberg/blocks/src/pricing-item/edit.js:224
+msgid "Features Styling"
+msgstr ""
+
+#: Frontend/Gutenberg/blocks/build/pricing-item/index.js:1
+#: Frontend/Gutenberg/blocks/src/pricing-item/edit.js:270
+msgid "Feature Alignment"
+msgstr ""
+
+#: Frontend/Gutenberg/blocks/build/pricing-item/index.js:1
+#: Frontend/Gutenberg/blocks/src/pricing-item/edit.js:274
+msgid "Left"
+msgstr ""
+
+#: Frontend/Gutenberg/blocks/build/pricing-item/index.js:1
+#: Frontend/Gutenberg/blocks/src/pricing-item/edit.js:275
+msgid "Center"
+msgstr ""
+
+#: Frontend/Gutenberg/blocks/build/pricing-item/index.js:1
+#: Frontend/Gutenberg/blocks/src/pricing-item/edit.js:276
+msgid "Right"
+msgstr ""
+
+#: Frontend/Gutenberg/blocks/build/pricing-item/index.js:1
+#: Frontend/Gutenberg/blocks/src/pricing-item/edit.js:281
+msgid "Button Styling"
+msgstr ""
+
+#: Frontend/Gutenberg/blocks/build/pricing-item/index.js:1
+#: Frontend/Gutenberg/blocks/src/pricing-item/edit.js:285
+msgid "Button Width"
+msgstr ""
+
+#: Frontend/Gutenberg/blocks/build/pricing-item/index.js:1
+#: Frontend/Gutenberg/blocks/src/pricing-item/edit.js:291
+msgid "Colors"
+msgstr ""
+
+#: Frontend/Gutenberg/blocks/build/pricing-item/index.js:1
+#: Frontend/Gutenberg/blocks/src/pricing-item/edit.js:296
+msgid "Text Color"
+msgstr ""
+
+#: Frontend/Gutenberg/blocks/build/pricing-item/index.js:1
+#: Frontend/Gutenberg/blocks/src/pricing-item/edit.js:301
+msgid "Background Color"
+msgstr ""
+
+#: Frontend/Gutenberg/blocks/build/pricing-item/index.js:1
+#: Frontend/Gutenberg/blocks/src/pricing-item/edit.js:306
+msgid "Hover Text Color"
+msgstr ""
+
+#: Frontend/Gutenberg/blocks/build/pricing-item/index.js:1
+#: Frontend/Gutenberg/blocks/src/pricing-item/edit.js:311
+msgid "Hover Background"
+msgstr ""
+
+#: Frontend/Gutenberg/blocks/build/pricing-item/index.js:1
+#: Frontend/Gutenberg/blocks/src/pricing-item/edit.js:316
+msgid "Border Radius (px)"
+msgstr ""
+
+#: Frontend/Gutenberg/blocks/build/pricing-item/index.js:1
+#: Frontend/Gutenberg/blocks/src/pricing-item/edit.js:468
+msgid "Add Feature"
+msgstr ""
+
+#: Frontend/Gutenberg/blocks/build/pricing-table/index.js:1
+#: Frontend/Gutenberg/blocks/src/pricing-table/edit.js:16
+msgid "Layout Settings"
+msgstr ""
+
+#: Frontend/Gutenberg/blocks/build/pricing-table/index.js:1
+#: Frontend/Gutenberg/blocks/src/pricing-table/edit.js:20
+msgid "Number of Columns"
+msgstr ""
+
+#: Frontend/Gutenberg/blocks/build/pricing-item/block.json
+#: Frontend/Gutenberg/blocks/src/pricing-item/block.json
+msgctxt "block title"
+msgid "Pricing Table Item"
+msgstr ""
+
+#: Frontend/Gutenberg/blocks/build/pricing-item/block.json
+#: Frontend/Gutenberg/blocks/src/pricing-item/block.json
+msgctxt "block description"
+msgid "A single pricing table item."
+msgstr ""
+
+#: Frontend/Gutenberg/blocks/build/pricing-table/block.json
+#: Frontend/Gutenberg/blocks/src/pricing-table/block.json
+msgctxt "block title"
+msgid "Pricing Table"
+msgstr ""
+
+#: Frontend/Gutenberg/blocks/build/pricing-table/block.json
+#: Frontend/Gutenberg/blocks/src/pricing-table/block.json
+msgctxt "block description"
+msgid "A responsive pricing table block."
 msgstr ""

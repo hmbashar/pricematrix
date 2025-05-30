@@ -1,12 +1,13 @@
 <?php
 /**
- * Plugin Name: PriceMatrix - The Ultimate Pricing Table Plugin
+ * Plugin Name: PriceMatrix - The Ultimate Pricing Table
  * Description: A powerful pricing matrix solution for managing complex pricing structures and calculations.
  * Version: 1.0.0
  * Author: Md Abul Bashar
  * Author URI: https://facebook.com/hmbashar
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Domain Path: /i18n
  * Text Domain: pricematrix
  * Requires at least: 5.8
  * Requires PHP: 8.0

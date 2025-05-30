@@ -1,9 +1,9 @@
-=== PriceMatrix - The Ultimate Pricing Table Plugin ===
+=== PriceMatrix - The Ultimate Pricing Table ===
 Contributors: hmbashar
 Donate link: https://facebook.com/hmbashar
-Tags: pricing table, price matrix, pricing plans, gutenberg blocks, pricing calculator
+Tags: pricing table, pricing, tables, gutenberg blocks
 Requires at least: 5.8
-Tested up to: 6.4
+Tested up to: 6.8
 Requires PHP: 8.0
 Stable tag: 1.0.0
 License: GPLv2 or later

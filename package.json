@@ -1,7 +1,7 @@
 {
   "name": "pricematrix",
   "version": "1.0.0",
-  "description": "PriceMatrix – Advanced Pricing Table Plugin",
+  "description": "PriceMatrix – Advanced Pricing Table",
   "author": "Md Abul Bashar",
   "license": "GPL-2.0-or-later",
   "private": true,
