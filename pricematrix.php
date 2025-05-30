@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: PriceMatrix - The Ultimate Pricing Table Plugin for Gutenberg
+ * Plugin Name: PriceMatrix - The Ultimate Pricing Table Plugin
  * Description: A powerful pricing matrix solution for managing complex pricing structures and calculations.
  * Version: 1.0.0
  * Author: Md Abul Bashar
