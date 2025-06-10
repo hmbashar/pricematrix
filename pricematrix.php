@@ -80,19 +80,12 @@ final class PriceMatrix
      */
     private function init_hooks()
     {
-        add_action('plugins_loaded', [$this, 'plugin_loaded']);
-        add_action('init', [$this, 'register_textdomain']);
+        add_action('plugins_loaded', [$this, 'plugin_loaded']);       
         register_activation_hook(PRICEMATRIX_FILE, [$this, 'activate']);
         register_deactivation_hook(PRICEMATRIX_FILE, [$this, 'deactivate']);
     }
 
-    /**
-     * Load plugin textdomain.
-     */
-    public function register_textdomain()
-    {
-        load_plugin_textdomain('pricematrix', false, dirname(plugin_basename(__FILE__)) . '/i18n');
-    }
+  
 
     /**
      * Called when the plugin is loaded.
