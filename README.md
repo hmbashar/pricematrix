@@ -67,4 +67,4 @@ This project is licensed under the GPL v2 or later - see the [LICENSE](https://w
 
 ## Donate
 
-If you find this plugin helpful, consider [supporting the development](https://buymeacoffee.com/hmbashar).
+If you find this plugin helpful, consider [supporting the development](https://wise.com/pay/me/mdabulb9).

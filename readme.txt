@@ -1,6 +1,6 @@
 === PriceMatrix - The Ultimate Pricing Table ===
 Contributors: hmbashar
-Donate link: https://buymeacoffee.com/hmbashar
+Donate link: https://wise.com/pay/me/mdabulb9
 Tags: pricing table, pricing, tables, gutenberg blocks
 Requires at least: 5.8
 Tested up to: 6.8
