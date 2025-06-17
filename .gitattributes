@@ -40,4 +40,5 @@ node_modules/           export-ignore
 *.tar.gz                export-ignore
 *.zip                   export-ignore
 /src/                   export-ignore
+blocks/src/                   export-ignore
 postcss.config.js       export-ignore

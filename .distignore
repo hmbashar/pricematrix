@@ -42,3 +42,4 @@ node_modules
 /src
 postcss.config.js
 .wordpress-org
+blocks/src
