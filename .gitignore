@@ -32,3 +32,12 @@ node_modules/
 
 .DS_Store
 build
+
+# Composer
+composer.lock
+vendor
+
+# PHP
+phpcs.xml
+phpcbf.xml
+phpstan.neon
