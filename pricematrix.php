@@ -2,7 +2,7 @@
 /**
  * Plugin Name: PriceMatrix - The Ultimate Pricing Table
  * Description: A powerful pricing matrix solution for managing complex pricing structures and calculations.
- * Version: 0.1.0
+ * Version: 1.0.0
  * Author: Md Abul Bashar
  * Author URI: https://facebook.com/hmbashar
  * License: GPLv2 or later
@@ -57,7 +57,7 @@ final class PriceMatrix
      */
     private function define_constants()
     {
-        define('PRICEMATRIX_VERSION', '0.1.0');
+        define('PRICEMATRIX_VERSION', '1.0.0');
         define('PRICEMATRIX_PATH', plugin_dir_path(__FILE__));
         define('PRICEMATRIX_URL', plugin_dir_url(__FILE__));
         define('PRICEMATRIX_BASENAME', plugin_basename(__FILE__));
