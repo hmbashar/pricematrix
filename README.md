@@ -64,13 +64,3 @@ This project is licensed under the GPL v2 or later - see the [LICENSE](https://w
 ## Author
 
 - [Md Abul Bashar](https://facebook.com/hmbashar)
-
-## Donate
-
-If you find this plugin helpful, consider [supporting the development](https://wise.com/pay/me/mdabulb9).
-
-## 💖 Support This Plugin
-
-If this plugin helps you, consider supporting future development:
-
-👉 [Donate via Wise](https://wise.com/pay/me/mdabulb9) – any amount is appreciated!
